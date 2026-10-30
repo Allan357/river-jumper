@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bxxyxqgsxe18r" path="res://entities/jogador.tscn" id="1_jogador"]
 
+[ext_resource type="Script" path="res://scripts/margem.gd" id="2_margem"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0"]
 size = Vector2(560, 616)
 
@@ -27,6 +29,7 @@ size = Vector2(80, 48)
 size = Vector2(96, 32)
 
 [node name="margem" type="Node2D" unique_id=1942837262]
+script = ExtResource("2_margem")
 metadata/_edit_vertical_guides_ = [1152.0]
 metadata/_edit_horizontal_guides_ = [648.0]
 
@@ -160,3 +163,38 @@ shape = SubResource("RectangleShape2D_7")
 
 [node name="Jogador" parent="." unique_id=1083495290 instance=ExtResource("1_jogador")]
 position = Vector2(176, 336)
+
+[node name="OrigemSaltos" type="Marker2D" parent="."]
+position = Vector2(624, 324)
+
+[node name="Horda" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Relogio" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Vida" type="Label" parent="HUD"]
+offset_left = 922.0
+offset_top = 29.0
+offset_right = 1116.0
+theme_override_font_sizes/font_size = 32
+text = "Vida: 3"
+horizontal_alignment = 2
+
+[node name="Tempo" type="Label" parent="HUD"]
+offset_left = 922.0
+offset_top = 73.0
+offset_right = 1116.0
+theme_override_font_sizes/font_size = 32
+text = "Tempo: 60 s"
+horizontal_alignment = 2
+
+[connection signal="timeout" from="Horda" to="." method="_on_horda_timeout"]
+[connection signal="timeout" from="Relogio" to="." method="vencer"]
