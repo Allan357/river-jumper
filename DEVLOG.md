@@ -12,3 +12,10 @@ O que fiz: adicionei a horda, três vidas e um cronômetro de 60 segundos, com t
 O que travou: os inimigos apareciam em terra, o que não combinava com a ideia das piranhas saindo do rio. Também testei um salto em arco antes de trocar a animação.
 Como resolvi: fiz os inimigos saírem da água e usei a mudança de tamanho para mostrar o salto. Depois de pousar, eles dão três pulos em terra e somem.
 Teste: joguei com o dano ativo e consegui sobreviver aos 60 segundos.
+
+## Aula 10 — roteiro de 28/10/2026
+
+O que fiz: fiz as piranhas contornarem as pedras nos pulos em terra. Também adicionei o ataque com Espaço e o placar de abates.
+O que travou: no primeiro teste, a rota vinha vazia porque eu consultava o mapa de navegação logo que a cena abria.
+Como resolvi: passei a esperar o Godot carregar o mapa de navegação antes de consultar o caminho. Aí consegui verificar que a piranha dava a volta na pedra.
+Teste: conferi o alcance e a recarga do ataque. A partida automatizada chegou aos 60 segundos com o dano ativo.

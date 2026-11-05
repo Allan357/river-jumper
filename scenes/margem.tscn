@@ -4,6 +4,8 @@
 
 [ext_resource type="Script" path="res://scripts/margem.gd" id="2_margem"]
 
+[ext_resource type="NavigationPolygon" path="res://scenes/navegacao-margem.tres" id="3_navegacao"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0"]
 size = Vector2(560, 616)
 
@@ -57,55 +59,58 @@ offset_bottom = 632.0
 mouse_filter = 2
 color = Color(0.47, 0.57, 0.35, 1)
 
-[node name="Agua" type="StaticBody2D" parent="." unique_id=317029941]
+[node name="Navegacao" type="NavigationRegion2D" parent="."]
+navigation_polygon = ExtResource("3_navegacao")
 
-[node name="Colisao1" type="CollisionShape2D" parent="Agua" unique_id=2095564363]
+[node name="Agua" type="StaticBody2D" parent="Navegacao" unique_id=317029941]
+
+[node name="Colisao1" type="CollisionShape2D" parent="Navegacao/Agua" unique_id=2095564363]
 position = Vector2(856, 324)
 shape = SubResource("RectangleShape2D_0")
 
-[node name="Muros" type="Node2D" parent="." unique_id=1135581062]
+[node name="Muros" type="Node2D" parent="Navegacao" unique_id=1135581062]
 
-[node name="Superior" type="StaticBody2D" parent="Muros" unique_id=2079097048]
+[node name="Superior" type="StaticBody2D" parent="Navegacao/Muros" unique_id=2079097048]
 
-[node name="Forma" type="ColorRect" parent="Muros/Superior" unique_id=1596671803]
+[node name="Forma" type="ColorRect" parent="Navegacao/Muros/Superior" unique_id=1596671803]
 offset_right = 1152.0
 offset_bottom = 16.0
 mouse_filter = 2
 color = Color(0.18, 0.25, 0.25, 1)
 
-[node name="Colisao" type="CollisionShape2D" parent="Muros/Superior" unique_id=317035409]
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Muros/Superior" unique_id=317035409]
 position = Vector2(576, 8)
 shape = SubResource("RectangleShape2D_1")
 
-[node name="Inferior" type="StaticBody2D" parent="Muros" unique_id=1107022121]
+[node name="Inferior" type="StaticBody2D" parent="Navegacao/Muros" unique_id=1107022121]
 
-[node name="Forma" type="ColorRect" parent="Muros/Inferior" unique_id=1189879344]
+[node name="Forma" type="ColorRect" parent="Navegacao/Muros/Inferior" unique_id=1189879344]
 offset_top = 632.0
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
 color = Color(0.18, 0.25, 0.25, 1)
 
-[node name="Colisao" type="CollisionShape2D" parent="Muros/Inferior" unique_id=1282702757]
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Muros/Inferior" unique_id=1282702757]
 position = Vector2(576, 640)
 shape = SubResource("RectangleShape2D_2")
 
-[node name="Esquerdo" type="StaticBody2D" parent="Muros" unique_id=2100536238]
+[node name="Esquerdo" type="StaticBody2D" parent="Navegacao/Muros" unique_id=2100536238]
 
-[node name="Forma" type="ColorRect" parent="Muros/Esquerdo" unique_id=188971851]
+[node name="Forma" type="ColorRect" parent="Navegacao/Muros/Esquerdo" unique_id=188971851]
 offset_top = 16.0
 offset_right = 16.0
 offset_bottom = 632.0
 mouse_filter = 2
 color = Color(0.18, 0.25, 0.25, 1)
 
-[node name="Colisao" type="CollisionShape2D" parent="Muros/Esquerdo" unique_id=46152003]
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Muros/Esquerdo" unique_id=46152003]
 position = Vector2(8, 324)
 shape = SubResource("RectangleShape2D_3")
 
-[node name="Direito" type="StaticBody2D" parent="Muros" unique_id=364130822]
+[node name="Direito" type="StaticBody2D" parent="Navegacao/Muros" unique_id=364130822]
 
-[node name="Forma" type="ColorRect" parent="Muros/Direito" unique_id=249357986]
+[node name="Forma" type="ColorRect" parent="Navegacao/Muros/Direito" unique_id=249357986]
 offset_left = 1136.0
 offset_top = 16.0
 offset_right = 1152.0
@@ -113,15 +118,15 @@ offset_bottom = 632.0
 mouse_filter = 2
 color = Color(0.18, 0.25, 0.25, 1)
 
-[node name="Colisao" type="CollisionShape2D" parent="Muros/Direito" unique_id=550931988]
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Muros/Direito" unique_id=550931988]
 position = Vector2(1144, 324)
 shape = SubResource("RectangleShape2D_4")
 
-[node name="Obstaculos" type="Node2D" parent="." unique_id=1996909695]
+[node name="Obstaculos" type="Node2D" parent="Navegacao" unique_id=1996909695]
 
-[node name="Pedra1" type="StaticBody2D" parent="Obstaculos" unique_id=318840883]
+[node name="Pedra1" type="StaticBody2D" parent="Navegacao/Obstaculos" unique_id=318840883]
 
-[node name="Forma" type="ColorRect" parent="Obstaculos/Pedra1" unique_id=1867366166]
+[node name="Forma" type="ColorRect" parent="Navegacao/Obstaculos/Pedra1" unique_id=1867366166]
 offset_left = 224.0
 offset_top = 176.0
 offset_right = 304.0
@@ -129,13 +134,13 @@ offset_bottom = 224.0
 mouse_filter = 2
 color = Color(0.36, 0.43, 0.43, 1)
 
-[node name="Colisao" type="CollisionShape2D" parent="Obstaculos/Pedra1" unique_id=1917119357]
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Obstaculos/Pedra1" unique_id=1917119357]
 position = Vector2(264, 200)
 shape = SubResource("RectangleShape2D_5")
 
-[node name="Pedra2" type="StaticBody2D" parent="Obstaculos" unique_id=1194903689]
+[node name="Pedra2" type="StaticBody2D" parent="Navegacao/Obstaculos" unique_id=1194903689]
 
-[node name="Forma" type="ColorRect" parent="Obstaculos/Pedra2" unique_id=836225175]
+[node name="Forma" type="ColorRect" parent="Navegacao/Obstaculos/Pedra2" unique_id=836225175]
 offset_left = 352.0
 offset_top = 352.0
 offset_right = 432.0
@@ -143,13 +148,13 @@ offset_bottom = 400.0
 mouse_filter = 2
 color = Color(0.36, 0.43, 0.43, 1)
 
-[node name="Colisao" type="CollisionShape2D" parent="Obstaculos/Pedra2" unique_id=1855788543]
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Obstaculos/Pedra2" unique_id=1855788543]
 position = Vector2(392, 376)
 shape = SubResource("RectangleShape2D_6")
 
-[node name="Pedra3" type="StaticBody2D" parent="Obstaculos" unique_id=821998979]
+[node name="Pedra3" type="StaticBody2D" parent="Navegacao/Obstaculos" unique_id=821998979]
 
-[node name="Forma" type="ColorRect" parent="Obstaculos/Pedra3" unique_id=2123903807]
+[node name="Forma" type="ColorRect" parent="Navegacao/Obstaculos/Pedra3" unique_id=2123903807]
 offset_left = 144.0
 offset_top = 480.0
 offset_right = 240.0
@@ -157,7 +162,7 @@ offset_bottom = 512.0
 mouse_filter = 2
 color = Color(0.36, 0.43, 0.43, 1)
 
-[node name="Colisao" type="CollisionShape2D" parent="Obstaculos/Pedra3" unique_id=268810388]
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Obstaculos/Pedra3" unique_id=268810388]
 position = Vector2(192, 496)
 shape = SubResource("RectangleShape2D_7")
 
@@ -194,6 +199,14 @@ offset_top = 73.0
 offset_right = 1116.0
 theme_override_font_sizes/font_size = 32
 text = "Tempo: 60 s"
+horizontal_alignment = 2
+
+[node name="Abates" type="Label" parent="HUD"]
+offset_left = 922.0
+offset_top = 117.0
+offset_right = 1116.0
+theme_override_font_sizes/font_size = 32
+text = "Abates: 0"
 horizontal_alignment = 2
 
 [connection signal="timeout" from="Horda" to="." method="_on_horda_timeout"]

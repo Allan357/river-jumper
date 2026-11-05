@@ -4,6 +4,7 @@ const CENA_INIMIGO := preload("res://entities/inimigo.tscn")
 
 var partida_encerrando := false
 var vermelhos_lancados := 0
+var abates := 0
 
 @onready var jogador := $Jogador
 @onready var terreno: ColorRect = $Terreno/Areia1
@@ -12,12 +13,19 @@ var vermelhos_lancados := 0
 @onready var relogio: Timer = $Relogio
 @onready var texto_vida: Label = $HUD/Vida
 @onready var texto_tempo: Label = $HUD/Tempo
+@onready var texto_abates: Label = $HUD/Abates
 
 
 # Placar adaptado do roteiro prático da Aula 09, Parte 4.
 func _process(_delta: float) -> void:
 	texto_vida.text = "Vida: %d" % jogador.vida
 	texto_tempo.text = "Tempo: %d s" % ceili(relogio.time_left)
+
+
+# Contagem de abates adaptada do roteiro prático da Aula 10, Parte 2.
+func inimigo_morreu() -> void:
+	abates += 1
+	texto_abates.text = "Abates: %d" % abates
 
 
 # Cadência baseada no roteiro da Aula 09, Parte 2; saltos e sequência 5:1 implementados com o Codex.
