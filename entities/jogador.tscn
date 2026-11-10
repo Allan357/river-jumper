@@ -4,6 +4,9 @@
 
 [ext_resource type="PackedScene" path="res://entities/camera.tscn" id="2_camera"]
 
+[ext_resource type="SpriteFrames" path="res://entities/jogador-poses.tres" id="3_visual"]
+[ext_resource type="Script" path="res://scripts/poses-personagem.gd" id="4_poses"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jogador"]
 size = Vector2(24, 24)
 
@@ -11,7 +14,7 @@ size = Vector2(24, 24)
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ataque"]
-radius = 20.0
+radius = 28.0
 
 [node name="Jogador" type="CharacterBody2D" unique_id=1100680395 groups=["player"]]
 z_index = 2
@@ -19,21 +22,12 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_script")
 
-[node name="Contorno" type="ColorRect" parent="." unique_id=1411223721]
-offset_left = -15.0
-offset_top = -15.0
-offset_right = 15.0
-offset_bottom = 15.0
-mouse_filter = 2
-color = Color(0.16, 0.2, 0.18, 1)
-
-[node name="Corpo" type="ColorRect" parent="." unique_id=2087826626]
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-mouse_filter = 2
-color = Color(1, 0.77, 0.26, 1)
+[node name="Corpo" type="AnimatedSprite2D" parent="." unique_id=2087826626]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("3_visual")
+animation = &"parado_baixo"
+script = ExtResource("4_poses")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=163282266]
 shape = SubResource("RectangleShape2D_jogador")
@@ -56,11 +50,8 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ataque"]
 shape = SubResource("CircleShape2D_ataque")
 
-[node name="Golpe" type="ColorRect" parent="Ataque"]
+[node name="Golpe" type="Line2D" parent="Ataque"]
 visible = false
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-mouse_filter = 2
-color = Color(1, 1, 1, 0.35)
+width = 2.0
+default_color = Color(1, 0.92, 0.65, 0.9)
+closed = true

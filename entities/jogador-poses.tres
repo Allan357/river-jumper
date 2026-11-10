@@ -1,0 +1,95 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://sprites/jogador.png" id="1_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_parado_lado.png" id="2_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_parado_cima.png" id="3_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_baixo_1.png" id="4_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_baixo_2.png" id="5_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_baixo_3.png" id="6_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_baixo_4.png" id="7_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_lado_1.png" id="8_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_lado_2.png" id="9_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_lado_3.png" id="10_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_lado_4.png" id="11_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_cima_1.png" id="12_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_cima_2.png" id="13_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_cima_3.png" id="14_pose"]
+[ext_resource type="Texture2D" path="res://sprites/jogador_andar_cima_4.png" id="15_pose"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pose")
+}],
+"loop": false,
+"name": &"parado_baixo",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pose")
+}],
+"loop": false,
+"name": &"parado_lado",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pose")
+}],
+"loop": false,
+"name": &"parado_cima",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pose")
+}],
+"loop": true,
+"name": &"andar_baixo",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pose")
+}],
+"loop": true,
+"name": &"andar_lado",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pose")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pose")
+}],
+"loop": true,
+"name": &"andar_cima",
+"speed": 8.0
+}]

@@ -19,3 +19,10 @@ O que fiz: fiz as piranhas contornarem as pedras nos pulos em terra. Também adi
 O que travou: no primeiro teste, a rota vinha vazia porque eu consultava o mapa de navegação logo que a cena abria.
 Como resolvi: passei a esperar o Godot carregar o mapa de navegação antes de consultar o caminho. Aí consegui verificar que a piranha dava a volta na pedra.
 Teste: conferi o alcance e a recarga do ataque. A partida automatizada chegou aos 60 segundos com o dano ativo.
+
+## Aula 11 — roteiro de 04/11/2026
+
+O que fiz: coloquei os sprites do personagem, dos aliados e das piranhas na arena e troquei a vida do HUD por corações.
+O que travou: mesmo reiniciando a partida, eu encontrava os aliados quase sempre nos mesmos lugares. Só mudava um pouco a posição de cada um.
+Como resolvi: passei a sortear as posições em todo o terreno livre, com espaço entre os aliados e longe das pedras e do ponto inicial do jogador.
+Teste: o jogo rodou por um minuto com a horda no ritmo máximo, sem travar.

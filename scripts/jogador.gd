@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal vida_alterada(vidas: int)
+
 var speed = 160
 var vida := 3
 var invencivel := false
@@ -7,7 +9,15 @@ var pode_atacar := true
 
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var ataque: Area2D = $Ataque
-@onready var golpe: ColorRect = $Ataque/Golpe
+@onready var golpe: Line2D = $Ataque/Golpe
+@onready var corpo: PosesPersonagem = $Corpo
+
+
+# Anel criado com o Codex a partir do raio da CircleShape2D do ataque.
+func _ready() -> void:
+	var alcance := ($Ataque/CollisionShape2D.shape as CircleShape2D).radius
+	for i in range(48):
+		golpe.add_point(Vector2.from_angle(TAU * i / 48.0) * alcance)
 
 
 # Movimento adaptado do exemplo “8-way movement” da documentação oficial da Godot.
@@ -19,6 +29,7 @@ func get_input():
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
+	corpo.mostrar_movimento(get_real_velocity())
 
 
 # Dano e invencibilidade adaptados do roteiro prático da Aula 09, Parte 3.
@@ -31,6 +42,7 @@ func _process(_delta: float) -> void:
 
 func levar_dano() -> void:
 	vida -= 1
+	vida_alterada.emit(vida)
 	if vida <= 0:
 		get_tree().current_scene.perder()
 		return

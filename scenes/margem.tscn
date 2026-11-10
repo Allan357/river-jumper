@@ -1,13 +1,18 @@
-[gd_scene format=3 uid="uid://2aamkmmw8mis"]
+[gd_scene format=4 uid="uid://2aamkmmw8mis"]
 
 [ext_resource type="PackedScene" uid="uid://bxxyxqgsxe18r" path="res://entities/jogador.tscn" id="1_jogador"]
-
-[ext_resource type="Script" path="res://scripts/margem.gd" id="2_margem"]
-
+[ext_resource type="Script" uid="uid://c88luql6k75v3" path="res://scripts/margem.gd" id="2_margem"]
 [ext_resource type="NavigationPolygon" path="res://scenes/navegacao-margem.tres" id="3_navegacao"]
+[ext_resource type="PackedScene" path="res://scenes/piso-margem.tscn" id="4_piso"]
+[ext_resource type="Texture2D" uid="uid://dm84s3spfq58d" path="res://sprites/obstaculo-pedra.png" id="5_pedra"]
+[ext_resource type="Texture2D" uid="uid://d063jerfpovey" path="res://sprites/obstaculo-pedra-baixa.png" id="6_pedra_baixa"]
+
+[ext_resource type="PackedScene" path="res://entities/aliado.tscn" id="7_aliado"]
+
+[ext_resource type="Texture2D" path="res://sprites/coracao.png" id="8_coracao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0"]
-size = Vector2(560, 616)
+size = Vector2(336, 616)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(1152, 16)
@@ -35,37 +40,17 @@ script = ExtResource("2_margem")
 metadata/_edit_vertical_guides_ = [1152.0]
 metadata/_edit_horizontal_guides_ = [648.0]
 
-[node name="AguaVisual" type="ColorRect" parent="." unique_id=898510269]
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 2
-color = Color(0.13, 0.35, 0.43, 1)
+[node name="Piso" parent="." unique_id=1650671200 instance=ExtResource("4_piso")]
+position = Vector2(0, 0)
+tile_map_data = PackedByteArray("AAD//wAA//////////8AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAQAAAANAAAAAAAAAAEAAAAOAAAAAAAAAAEAAAAPAAAAAAAAAAUAAAAQAAAAAAAAAAIAAAARAAAAAAAAAAIAAAD//wEA//////////8AAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAQAAAANAAEAAAAAAAEAAAAOAAEAAAAAAAEAAAAPAAEAAAAAAAUAAAAQAAEAAAAAAAIAAAARAAEAAAAAAAIAAAD//wIA//////////8AAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAMAAIAAAAAAAQAAAANAAIAAAAAAAEAAAAOAAIAAAAAAAEAAAAPAAIAAAAAAAUAAAAQAAIAAAAAAAIAAAARAAIAAAAAAAIAAAD//wMA//////////8AAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAMAAMAAAAAAAQAAAANAAMAAAAAAAEAAAAOAAMAAAAAAAEAAAAPAAMAAAAAAAUAAAAQAAMAAAAAAAIAAAARAAMAAAAAAAIAAAD//wQA//////////8AAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAQAAAANAAQAAAAAAAEAAAAOAAQAAAAAAAEAAAAPAAQAAAAAAAUAAAAQAAQAAAAAAAIAAAARAAQAAAAAAAIAAAD//wUA//////////8AAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAQAAAANAAUAAAAAAAEAAAAOAAUAAAAAAAEAAAAPAAUAAAAAAAUAAAAQAAUAAAAAAAIAAAARAAUAAAAAAAIAAAD//wYA//////////8AAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAQAAAANAAYAAAAAAAEAAAAOAAYAAAAAAAEAAAAPAAYAAAAAAAUAAAAQAAYAAAAAAAIAAAARAAYAAAAAAAIAAAD//wcA//////////8AAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAQAAAANAAcAAAAAAAEAAAAOAAcAAAAAAAEAAAAPAAcAAAAAAAUAAAAQAAcAAAAAAAIAAAARAAcAAAAAAAIAAAD//wgA//////////8AAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAQAAAANAAgAAAAAAAEAAAAOAAgAAAAAAAEAAAAPAAgAAAAAAAUAAAAQAAgAAAAAAAIAAAARAAgAAAAAAAIAAAD//wkA//////////8AAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAQAAAANAAkAAAAAAAEAAAAOAAkAAAAAAAEAAAAPAAkAAAAAAAUAAAAQAAkAAAAAAAIAAAARAAkAAAAAAAIAAAD//woA//////////8AAAoA//////////8BAAoA//////////8CAAoA//////////8DAAoA//////////8EAAoA//////////8FAAoA//////////8GAAoA//////////8HAAoA//////////8IAAoA//////////8JAAoA//////////8KAAoA//////////8LAAoA//////////8MAAoA//////////8NAAoA//////////8OAAoA//////////8PAAoA//////////8QAAoA//////////8RAAoA//////////8=")
 
-[node name="Terreno" type="Node2D" parent="." unique_id=38155814]
-
-[node name="Areia1" type="ColorRect" parent="Terreno" unique_id=997307879]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 576.0
-offset_bottom = 632.0
-mouse_filter = 2
-color = Color(0.78, 0.68, 0.46, 1)
-
-[node name="Terra1" type="ColorRect" parent="Terreno" unique_id=1845387791]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 544.0
-offset_bottom = 632.0
-mouse_filter = 2
-color = Color(0.47, 0.57, 0.35, 1)
-
-[node name="Navegacao" type="NavigationRegion2D" parent="."]
+[node name="Navegacao" type="NavigationRegion2D" parent="." unique_id=528557364]
 navigation_polygon = ExtResource("3_navegacao")
 
 [node name="Agua" type="StaticBody2D" parent="Navegacao" unique_id=317029941]
 
 [node name="Colisao1" type="CollisionShape2D" parent="Navegacao/Agua" unique_id=2095564363]
-position = Vector2(856, 324)
+position = Vector2(968, 324)
 shape = SubResource("RectangleShape2D_0")
 
 [node name="Muros" type="Node2D" parent="Navegacao" unique_id=1135581062]
@@ -126,13 +111,10 @@ shape = SubResource("RectangleShape2D_4")
 
 [node name="Pedra1" type="StaticBody2D" parent="Navegacao/Obstaculos" unique_id=318840883]
 
-[node name="Forma" type="ColorRect" parent="Navegacao/Obstaculos/Pedra1" unique_id=1867366166]
-offset_left = 224.0
-offset_top = 176.0
-offset_right = 304.0
-offset_bottom = 224.0
-mouse_filter = 2
-color = Color(0.36, 0.43, 0.43, 1)
+[node name="Sprite" type="Sprite2D" parent="Navegacao/Obstaculos/Pedra1" unique_id=1867366166]
+texture_filter = 1
+position = Vector2(264, 200)
+texture = ExtResource("5_pedra")
 
 [node name="Colisao" type="CollisionShape2D" parent="Navegacao/Obstaculos/Pedra1" unique_id=1917119357]
 position = Vector2(264, 200)
@@ -140,13 +122,11 @@ shape = SubResource("RectangleShape2D_5")
 
 [node name="Pedra2" type="StaticBody2D" parent="Navegacao/Obstaculos" unique_id=1194903689]
 
-[node name="Forma" type="ColorRect" parent="Navegacao/Obstaculos/Pedra2" unique_id=836225175]
-offset_left = 352.0
-offset_top = 352.0
-offset_right = 432.0
-offset_bottom = 400.0
-mouse_filter = 2
-color = Color(0.36, 0.43, 0.43, 1)
+[node name="Sprite" type="Sprite2D" parent="Navegacao/Obstaculos/Pedra2" unique_id=836225175]
+texture_filter = 1
+position = Vector2(392, 376)
+texture = ExtResource("5_pedra")
+flip_h = true
 
 [node name="Colisao" type="CollisionShape2D" parent="Navegacao/Obstaculos/Pedra2" unique_id=1855788543]
 position = Vector2(392, 376)
@@ -154,60 +134,128 @@ shape = SubResource("RectangleShape2D_6")
 
 [node name="Pedra3" type="StaticBody2D" parent="Navegacao/Obstaculos" unique_id=821998979]
 
-[node name="Forma" type="ColorRect" parent="Navegacao/Obstaculos/Pedra3" unique_id=2123903807]
-offset_left = 144.0
-offset_top = 480.0
-offset_right = 240.0
-offset_bottom = 512.0
-mouse_filter = 2
-color = Color(0.36, 0.43, 0.43, 1)
+[node name="Sprite" type="Sprite2D" parent="Navegacao/Obstaculos/Pedra3" unique_id=2123903807]
+texture_filter = 1
+position = Vector2(192, 496)
+texture = ExtResource("6_pedra_baixa")
 
 [node name="Colisao" type="CollisionShape2D" parent="Navegacao/Obstaculos/Pedra3" unique_id=268810388]
 position = Vector2(192, 496)
 shape = SubResource("RectangleShape2D_7")
 
+[node name="Pedra4" type="StaticBody2D" parent="Navegacao/Obstaculos"]
+
+[node name="Sprite" type="Sprite2D" parent="Navegacao/Obstaculos/Pedra4"]
+texture_filter = 1
+position = Vector2(610, 205)
+texture = ExtResource("5_pedra")
+
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Obstaculos/Pedra4"]
+position = Vector2(610, 205)
+shape = SubResource("RectangleShape2D_5")
+
+[node name="Pedra5" type="StaticBody2D" parent="Navegacao/Obstaculos"]
+
+[node name="Sprite" type="Sprite2D" parent="Navegacao/Obstaculos/Pedra5"]
+texture_filter = 1
+position = Vector2(675, 460)
+texture = ExtResource("6_pedra_baixa")
+
+[node name="Colisao" type="CollisionShape2D" parent="Navegacao/Obstaculos/Pedra5"]
+position = Vector2(675, 460)
+shape = SubResource("RectangleShape2D_7")
+
 [node name="Jogador" parent="." unique_id=1083495290 instance=ExtResource("1_jogador")]
-position = Vector2(176, 336)
+position = Vector2(175, 336)
 
-[node name="OrigemSaltos" type="Marker2D" parent="."]
-position = Vector2(624, 324)
+[node name="Aliados" type="Node2D" parent="."]
 
-[node name="Horda" type="Timer" parent="."]
+[node name="Aliado1" parent="Aliados" instance=ExtResource("7_aliado")]
+position = Vector2(110, 85)
+
+[node name="Aliado2" parent="Aliados" instance=ExtResource("7_aliado")]
+position = Vector2(482, 100)
+
+[node name="Aliado3" parent="Aliados" instance=ExtResource("7_aliado")]
+position = Vector2(737, 280)
+
+[node name="Aliado4" parent="Aliados" instance=ExtResource("7_aliado")]
+position = Vector2(706, 555)
+
+[node name="Aliado5" parent="Aliados" instance=ExtResource("7_aliado")]
+position = Vector2(85, 563)
+
+[node name="OrigemSaltos" type="Marker2D" parent="." unique_id=1376263836]
+position = Vector2(848, 324)
+
+[node name="Horda" type="Timer" parent="." unique_id=426478756]
 process_callback = 0
 wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="Relogio" type="Timer" parent="."]
-wait_time = 60.0
-one_shot = true
-autostart = true
+[node name="HUD" type="CanvasLayer" parent="." unique_id=171958649]
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Vida" type="Label" parent="HUD"]
-offset_left = 922.0
+[node name="Status" type="VBoxContainer" parent="HUD"]
+texture_filter = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -252.0
 offset_top = 29.0
-offset_right = 1116.0
-theme_override_font_sizes/font_size = 32
-text = "Vida: 3"
-horizontal_alignment = 2
+offset_right = -36.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = 8
 
-[node name="Tempo" type="Label" parent="HUD"]
-offset_left = 922.0
-offset_top = 73.0
-offset_right = 1116.0
-theme_override_font_sizes/font_size = 32
-text = "Tempo: 60 s"
-horizontal_alignment = 2
+[node name="Vida" type="HBoxContainer" parent="HUD/Status"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 2
 
-[node name="Abates" type="Label" parent="HUD"]
-offset_left = 922.0
-offset_top = 117.0
-offset_right = 1116.0
-theme_override_font_sizes/font_size = 32
-text = "Abates: 0"
-horizontal_alignment = 2
+[node name="Coracao1" type="TextureRect" parent="HUD/Status/Vida"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("8_coracao")
+expand_mode = 1
+stretch_mode = 5
 
+[node name="Coracao2" type="TextureRect" parent="HUD/Status/Vida"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("8_coracao")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao3" type="TextureRect" parent="HUD/Status/Vida"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("8_coracao")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Abates" type="HBoxContainer" parent="HUD/Status"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Icones" type="HBoxContainer" parent="HUD/Status/Abates"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="Excesso" type="Label" parent="HUD/Status/Abates"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.68, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.16, 0.15, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+
+[connection signal="vida_alterada" from="Jogador" to="." method="_atualizar_vida"]
 [connection signal="timeout" from="Horda" to="." method="_on_horda_timeout"]
-[connection signal="timeout" from="Relogio" to="." method="vencer"]

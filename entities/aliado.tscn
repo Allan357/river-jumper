@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/aliado.gd" id="1_aliado"]
+[ext_resource type="SpriteFrames" path="res://entities/aliado-poses.tres" id="2_poses"]
+[ext_resource type="Script" path="res://scripts/poses-personagem.gd" id="3_visual"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aliado"]
+size = Vector2(20, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_detector"]
+radius = 13.0
+
+[node name="Aliado" type="CharacterBody2D" groups=["aliado"]]
+z_index = 1
+collision_layer = 0
+collision_mask = 1
+motion_mode = 1
+script = ExtResource("1_aliado")
+
+[node name="Corpo" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("2_poses")
+animation = &"parado_baixo"
+script = ExtResource("3_visual")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aliado")
+
+[node name="Detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("CircleShape2D_detector")
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

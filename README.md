@@ -7,18 +7,18 @@ Projeto de Jogos Digitais II, desenvolvido na Godot 4.7.1 com renderizador Compa
 - **Tema:** beira de rio com piranhas saltadoras.
 - **Tipo:** Resgate.
 - **Modo:** horda, visto de cima; movimento em quatro direções, sem gravidade.
-- **Objetivo final:** encontrar 5 aliados, que passam a seguir o jogador em fila.
-- **Derrota prevista:** a vida acaba ou um inimigo toca a fila.
+- **Objetivo:** encontrar 5 aliados, que passam a seguir o jogador em fila.
+- **Derrota:** a vida acaba ou um inimigo toca a fila.
 
 ## Como jogar
 
-Abra o arquivo `project.godot` na Godot e pressione **F5**. Mova o quadrado amarelo com **WASD** ou com as **setas**. Pressione **Espaço** para acertar inimigos no chão ao seu redor. Cada inimigo atingido conta como um abate.
+Abra o arquivo `project.godot` na Godot e pressione **F5**. Mova o personagem de colete amarelo com **WASD** ou com as **setas**. Pressione **Espaço** para atacar as piranhas no chão dentro do anel. Cada abate mostra **+1** no ponto do golpe e acrescenta um ícone de piranha ao HUD. Depois do quinto ícone, o HUD mostra quantos abates vieram a mais. Os corações mostram a vida restante.
 
-Nesta etapa, o objetivo é sobreviver **60 segundos**. Cada contato com um inimigo em terra tira uma vida, e a partida termina se você perder as três. Pressione **Enter** na tela de vitória ou derrota para jogar novamente.
+Encoste nos **cinco aliados de azul** para resgatá-los. As posições dos aliados são sorteadas por todo o terreno livre a cada partida. Eles passam a seguir você em fila. Você vence ao reunir os cinco. Cada contato com uma piranha em terra tira uma vida. A partida termina se você perder as três vidas ou se uma piranha tocar um aliado que já está na fila. Pressione **Enter** na tela de vitória ou derrota para jogar novamente.
 
 Os inimigos saltam do rio. Depois de pousar, dão três pulos em direção ao jogador, contornando as pedras, e desaparecem. Só os inimigos derrotados com o ataque contam no placar. Os vermelhos pousam em pontos livres sorteados no terreno. A cada cinco vermelhos, um verde salta para a posição que o jogador ocupava no início do salto. Mova-se antes de ele pousar para desviar.
 
-![Arena do River Jumper com clarão do ataque, inimigos e placar de abates](aula-10.png)
+![Arena do River Jumper com aliados em fila, corações de vida e ícones de piranha](aula-11.png)
 
 ## Referência do código
 
@@ -30,4 +30,6 @@ O salto usa [Tween](https://docs.godotengine.org/en/stable/classes/class_tween.h
 
 A navegação e o ataque seguem as Partes 1 e 2 do roteiro da Aula 10. A malha exclui os obstáculos da arena e o agente indica o próximo ponto para cada pulo. Consulte [NavigationPolygon](https://docs.godotengine.org/en/stable/classes/class_navigationpolygon.html) e [NavigationAgent2D](https://docs.godotengine.org/en/stable/classes/class_navigationagent2d.html).
 
-A adaptação e a configuração do projeto tiveram assistência do Codex.
+O Resgate parte da ficha do roteiro da Aula 10, páginas 11–12. A fila usa o caminho já percorrido pelo jogador para espaçar os aliados e segue as colisões da arena.
+
+Os sprites, as poses dos personagens e as texturas de referência do terreno foram gerados para o River Jumper com ImageGen e adaptados com auxílio do Codex.
