@@ -26,3 +26,10 @@ O que fiz: coloquei os sprites do personagem, dos aliados e das piranhas na aren
 O que travou: mesmo reiniciando a partida, eu encontrava os aliados quase sempre nos mesmos lugares. Só mudava um pouco a posição de cada um.
 Como resolvi: passei a sortear as posições em todo o terreno livre, com espaço entre os aliados e longe das pedras e do ponto inicial do jogador.
 Teste: o jogo rodou por um minuto com a horda no ritmo máximo, sem travar.
+
+## Aula 12 — roteiro de 11/11/2026
+
+O que fiz: coloquei o River Jumper no GitHub Pages e adicionei o link no README.
+O que travou: na Godot o jogo abria normalmente, mas no navegador a arena não carregava. A cena da piranha tinha ficado de fora da exportação.
+Como resolvi: mudei o preset Web para incluir os recursos do jogo e gerei o pacote de novo.
+Teste: abri o link público no Chrome e conferi se dava para andar e começar outra partida com Enter depois de perder.

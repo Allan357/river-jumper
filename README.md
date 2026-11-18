@@ -12,6 +12,8 @@ Projeto de Jogos Digitais II, desenvolvido na Godot 4.7.1 com renderizador Compa
 
 ## Como jogar
 
+**[Jogar River Jumper no navegador](https://allan357.github.io/river-jumper/)**
+
 Abra o arquivo `project.godot` na Godot e pressione **F5**. Mova o personagem de colete amarelo com **WASD** ou com as **setas**. Pressione **Espaço** para atacar as piranhas no chão dentro do anel. Cada abate mostra **+1** no ponto do golpe e acrescenta um ícone de piranha ao HUD. Depois do quinto ícone, o HUD mostra quantos abates vieram a mais. Os corações mostram a vida restante.
 
 Encoste nos **cinco aliados de azul** para resgatá-los. As posições dos aliados são sorteadas por todo o terreno livre a cada partida. Eles passam a seguir você em fila. Você vence ao reunir os cinco. Cada contato com uma piranha em terra tira uma vida. A partida termina se você perder as três vidas ou se uma piranha tocar um aliado que já está na fila. Pressione **Enter** na tela de vitória ou derrota para jogar novamente.
